@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# 더파이러츠 프론트엔드 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 과제 요약
 
-## Available Scripts
+- 인어교주해적단 웹/앱을 참고하여 과제 순서에 따라 개발 진행
+- 개발언어: HTML, ReactJs(Es6+)
+- 필수 패키지: `react-router-dom`, `styled-components`, `styled-reset`, `react-loader-spinner`, `react-responsive-carousel`
 
-In the project directory, you can run:
+## 작동 가이드
 
-### `yarn start`
+### 1. `git clone` 통해 레포지토리를 로컬에 저장한다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 2. `npm install` 통해 의존성 모듈 자동 설치한 이후 `npm start` 명령으로 서버를 실행한다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 3. 폴더구조
 
-### `yarn test`
+![스크린샷 2021-05-15 오전 10 08 48](https://user-images.githubusercontent.com/64411691/118343729-902b1900-b565-11eb-89ce-b492e27819e3.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `data 폴더` : 메인페이지와 상세페이지에 필요한 데이터를 저장한 js 파일 폴더
+- `images 폴더` : 이미지 폴더
+- `pages 폴더` : 메인페이지와 상세페이지 컴포넌트를 관리하는 폴더
+- `styles 폴더` : 공통, 사용자 정의 스타일, 캐러셀 커스텀 스타일을 저장한 폴더
+- `ui 폴더` : 재사용되는 atoms, modules 단위로 나눈 컴포넌트들을 저장한 폴더
+  <br/><br/>
 
-### `yarn build`
+### 4. 메인페이지 구성
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![스크린샷 2021-05-15 오전 10 05 45](https://user-images.githubusercontent.com/64411691/118343673-3b879e00-b565-11eb-8327-5e00924e4c1e.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 메인컴포넌트와 안에서 사용되는 헤더, 검색, 롤링배너, 필터, 가게리스트 컴포넌트로 구성했습니다.
+  <br/><br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 📌 &nbsp; 헤더
 
-### `yarn eject`
+<hr/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![헤더](https://user-images.githubusercontent.com/64411691/118344173-e6995700-b567-11eb-9a0c-ae1e72c30666.gif)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 선택된 내브 버튼의 색상이 변경되도록 구현했습니다.
+  <br/><br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### 📌 &nbsp; 롤링배너
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<hr/>
 
-## Learn More
+![롤링배너](https://user-images.githubusercontent.com/64411691/118344459-01200000-b569-11eb-881b-960a3cabe9b9.gif)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 목록을 펼치기 전에는 2초마다 자동으로 다음 배너가 나오도록 설정했습니다.
+- 1초 간격으로 구현했을 때 롤링되는 속도가 너무 빨라 2초로 수정했습니다.
+- 목록을 펼치면 자동롤링이 종료되고 전체 배너 목록을 확인할 수 있습니다.
+  <br/><br/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### 📌 &nbsp; 필터
 
-### Code Splitting
+<hr/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![필터](https://user-images.githubusercontent.com/64411691/118344563-beaaf300-b569-11eb-9e6c-29a06cbe521f.gif)
 
-### Analyzing the Bundle Size
+- 선택된 필터링이 있을 경우 다른 스타일을 적용하여 구분하였습니다.
+- 선택된 필터링이 있을 경우 관련된 데이터 목록이 렌더링되고 없을 경우 초기화되도록 구현했습니다.
+- 데이터가 없는 기본순을 제외한 모든지역, 모든품목만 필터링을 구현하였습니다.
+  <br/><br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### 📌 &nbsp; 무한스크롤
 
-### Making a Progressive Web App
+<hr/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![무한스크롤](https://user-images.githubusercontent.com/64411691/118344762-041bf000-b56b-11eb-81d7-077a20215bd4.gif)
 
-### Advanced Configuration
+- `IntersectionObserver API` 이용하여 무한스크롤을 구현하였습니다.
+- 초기렌더링(데이터 받기 전 상태) 또는 검색 결과가 없을 경우 검색결과 없음을 텍스트로 나타냈습니다.
+- 10개 단위로 데이터를 추가했고 데이터가 있을 경우 로딩 애니메이션이 나타나며 2초 뒤에 데이터가 추가되도록 구현했습니다.
+- 리스트는 썸네일, 가게 이름, 시장, 설명, 영업 상태, 평점, 리뷰, 태그로 구성했고 데이터에 따라 영업상태를 구분하였습니다.
+  <br/><br/><br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 5. 상세페이지 구성
 
-### Deployment
+![스크린샷 2021-05-15 오전 11 01 25](https://user-images.githubusercontent.com/64411691/118345032-e780b780-b56c-11eb-85b6-890a3ab1c133.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- 상세컴포넌트와 헤더, 썸네일, 정보, 가격정보, 탐방기, 준비(리뷰, 위치탭) 컴포넌트로 구성했습니다.
+  <br/><br/>
 
-### `yarn build` fails to minify
+#### 📌 &nbsp; 페이지 이동
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<hr/>
+
+![페이지이동](https://user-images.githubusercontent.com/64411691/118345425-5c54f100-b56f-11eb-8129-1bd9292fb4ce.gif)
+
+- `storeData` 포함된 `uri` 를 이용하여 동적라우팅을 구현했고 메인페이지로 돌아갈 수 있도록 했습니다.
+  <br/><br/>
+
+#### 📌 &nbsp; 가게 정보
+
+<hr/>
+
+![가게정보](https://user-images.githubusercontent.com/64411691/118345483-b35ac600-b56f-11eb-83b8-c424ca7e258f.gif)
+
+- 상세페이지 데이터가 없어 `storeData` 일부분을 활용했습니다.
+- 썸네일 이미지 경우 사이즈가 맞지 않아 활용하지 못했고 태그, 관심버튼에 활용했습니다.
+- `Date` 객체를 이용하여 현재 요일을 기준으로 영업시간을 구현했습니다.
+  <br/><br/>
+
+#### 📌 &nbsp; 탭 이동
+
+<hr/>
+
+![탭이동](https://user-images.githubusercontent.com/64411691/118345649-f49fa580-b570-11eb-9948-aa092fabb893.gif)
+
+- 가격정보, 탐방기, 리뷰, 위치 탭으로 구성했습니다.
+- 선택된 탭 관련 컴포넌트가 렌더링되도록 했고 리뷰, 위치 탭은 작업중임을 나타내는 컴포넌트로 대체했습니다.
+  <br/><br/>
+
+#### 📌 &nbsp; 가격 정보 탭
+
+<hr/>
+
+![가격정보](https://user-images.githubusercontent.com/64411691/118345844-43017400-b572-11eb-9ec2-9651beabc053.gif)
+
+- 메뉴와 품목시세 두 가지로 구성했습니다.
+- 공통적으로 더보기, 접기 버튼을 구현했습니다.
+- 메뉴는 `react-responsive-carousel` 라이브러리를 이용하여 캐러셀을 구현했습니다.
+- 품목시세는 `storeData`의 `tags` 와 `Date` 객체를 이용하여 시세상태에 따른 공지와 오늘 날짜를 구현했습니다.
+  <br/><br/>
+
+#### 📌 &nbsp; 탐방기 탭
+
+<hr/>
+
+![탐방기](https://user-images.githubusercontent.com/64411691/118346082-0171c880-b574-11eb-895a-56c87c215fdb.gif)
+
+- 탐방기 컴포넌트는 텍스트와 이미지를 하드코딩으로 작성하였습니다.
