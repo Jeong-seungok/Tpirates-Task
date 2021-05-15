@@ -1,0 +1,17 @@
+.carousel.carousel-slider {
+  display: flex;
+  flex-wrap: wrap;
+}
+.carousel .control-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  order: 2;
+}
+.carousel .control-dots .dot {
+  width: 7px;
+  height: 7px;
+  margin: 0 0 0 3px;
+  background-color: #777;
+}
